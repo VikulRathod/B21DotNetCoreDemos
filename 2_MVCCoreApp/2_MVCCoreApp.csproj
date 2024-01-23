@@ -7,4 +7,10 @@
     <RootNamespace>_2_MVCCoreApp</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\files\Visual Studio 2022 Installation Process.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
