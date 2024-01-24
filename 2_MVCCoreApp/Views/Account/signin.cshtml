@@ -32,23 +32,29 @@
 <form asp-action="signin" asp-controller="account" method="post">
     <table>
         <tr>
-            <td>
-                @*@Html.DisplayNameFor(model => model.Email)*@
-                <label asp-for="Email"></label>
+            @*<td>
+            <label asp-for="Email"></label>
             </td>
             <td>
-                @*@Html.EditorFor(model => model.Email)*@
-                <input type="text" asp-for="Email"/>
+            <input type="text" asp-for="Email"/>
+            </td>*@
+            <td>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"></span>
+                    <input type="text" asp-for="Email" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    @*@Html.ValidationMessageFor(model => model.Email)*@
+                    <span asp-validation-for="Email"></span>
+                </div>
             </td>
         </tr>
         <tr>
             <td>
-               @* @Html.DisplayNameFor(model => model.Password)*@
-               <label asp-for="Password"></label>
+                @* @Html.DisplayNameFor(model => model.Password)*@
+                <label asp-for="Password"></label>
             </td>
             <td>
-               @* @Html.PasswordFor(model => model.Password)*@
-               <input type="password" asp-for="Password"/>
+                @* @Html.PasswordFor(model => model.Password)*@
+                <input type="password" asp-for="Password" />
             </td>
         </tr>
         <tr>

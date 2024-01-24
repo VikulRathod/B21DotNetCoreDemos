@@ -1,0 +1,51 @@
+﻿<h2>Product Index View</h2>
+
+@{
+    List<string> names = new List<string>() { "Sumit", "Ritesh", "Umesh" };
+}
+
+@*<ul>
+    <li>Sumit</li>
+    <li>Ritesh</li>
+    <li>Umesh</li>
+</ul>*@
+
+<ul>
+    @foreach (var name in names)
+    {
+        <li>@name</li>
+    }
+</ul>
+
+@{
+    int i = 10;
+    if (i == 10)
+    {
+        <p>TEN : @i</p>
+    }
+    else
+    {
+        <p>NOT TEN : @i</p>
+    }
+}
+
+<table>
+    <tr>
+        <td>Name</td>
+        <td>
+            <input type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>
+            @Html.TextBox("name")
+        </td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>
+            <input type="text"/>
+        </td>
+    </tr>
+</table>
