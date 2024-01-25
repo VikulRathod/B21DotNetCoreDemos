@@ -1,4 +1,9 @@
-﻿@model LoginViewModel
+﻿@using _2_MVCCoreApp
+@addTagHelper *, _2_MVCCoreApp
+@addTagHelper *, _2_MVCCoreApp.TagHelpers
+
+
+@model LoginViewModel
 
 <h2>Sign In Page</h2>
 
@@ -40,7 +45,7 @@
             </td>*@
             <td>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"></span>
+                    <span class="input-group-text" id="basic-addon1">&#64;</span>
                     <input type="text" asp-for="Email" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                     @*@Html.ValidationMessageFor(model => model.Email)*@
                     <span asp-validation-for="Email"></span>
@@ -49,17 +54,20 @@
         </tr>
         <tr>
             <td>
-                @* @Html.DisplayNameFor(model => model.Password)*@
-                <label asp-for="Password"></label>
-            </td>
-            <td>
-                @* @Html.PasswordFor(model => model.Password)*@
-                <input type="password" asp-for="Password" />
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">&#8471;</span>
+                    <input type="password" asp-for="Password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+                    @*@Html.ValidationMessageFor(model => model.Email)*@
+                    <span asp-validation-for="Password"></span>
+                </div>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Sign In" />
+                @*<input type="submit" value="Sign In" class="btn btn-info"/>*@
+                <command-button value="Sign In Button" class="btn btn-info">
+                </command-button> | 
+                <submit-button text="Create an Account"></submit-button>
             </td>
         </tr>
     </table>
