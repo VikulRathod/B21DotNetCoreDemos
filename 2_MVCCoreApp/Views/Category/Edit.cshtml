@@ -1,0 +1,22 @@
+﻿@using System.Text.Json;
+
+<h2>Edit View</h2>
+
+<h3>Tempdata Value</h3>
+<h4>Customer Name : @ViewBag.customername</h4>
+
+<h4>@ViewBag.Category.CategoryName</h4>
+
+@{
+    var json = Context.Session.GetString("categories");
+    List<CategoryViewModel> categories =
+    JsonSerializer.Deserialize<List<CategoryViewModel>>(json);
+}
+
+<h4>All Categories</h4>
+<ul>
+    @foreach (var cat in categories)
+    {
+        <li>Id : @cat.CategoryId Name : @cat.CategoryName Brand : @cat.BrandName</li>
+    }
+</ul>
