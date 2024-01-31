@@ -15,7 +15,7 @@ namespace _2_MVCCoreApp.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
-            if(email.Equals("admin") && password.Equals("admin"))
+            if (email.Equals("admin") && password.Equals("admin"))
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -40,8 +40,12 @@ namespace _2_MVCCoreApp.Controllers
         [HttpPost]
         public IActionResult SignIn(LoginViewModel model)
         {
-            if(model.Email.Equals("admin@gmail.com") &&
+            if (model.Email.Equals("admin@gmail.com") &&
                 model.Password.Equals("admin"))
+            {
+                return RedirectToAction("Index", "Dashboard", new { area = "admin" });
+            }
+            else
             {
                 return RedirectToAction("Index", "Home");
             }

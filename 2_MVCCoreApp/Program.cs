@@ -15,6 +15,8 @@ var app = builder.Build();
 //    app.UseExceptionHandler("/Home/Error");
 //}
 
+// app.UseHttpsRedirection(); // be default http => https
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -35,7 +37,13 @@ app.UseSession();
 //    name: "default2",
 //    pattern: "{controller}/{action}/{catId}/{rating}");
 
-
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
+    );
+});
 
 app.UseEndpoints((configure) =>
 {
@@ -45,7 +53,8 @@ app.UseEndpoints((configure) =>
 
     app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Category}/{action=Index}/{id?}");
+    pattern: "{controller=User}/{action=Index}/{id?}");
 });
+
 
 app.Run();
