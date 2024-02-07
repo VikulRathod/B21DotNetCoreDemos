@@ -3,20 +3,19 @@ using MVCCoreEFDBFIrstApp.Models;
 
 namespace MVCCoreEFDBFIrstApp.Controllers
 {
-    public class CategoryController : Controller
+    public class ProductController : Controller
     {
         ProductDbContext _db;
 
-        public CategoryController(ProductDbContext db)
+        public ProductController(ProductDbContext db)
         {
             _db = db;
         }
 
         public IActionResult Index()
         {
-            var categories = _db.Categories.ToList();
-
-            return View(categories);
+            var products = _db.TblProducts.ToList();
+            return View(products);
         }
     }
 }

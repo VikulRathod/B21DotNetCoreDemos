@@ -1,13 +1,14 @@
-using DbModels;
 using Microsoft.EntityFrameworkCore;
+using MVCCoreEFDBFIrstApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<B21EFCoreCodeFirstDBContext>(
-    options => options.UseSqlServer(builder.Configuration.GetConnectionString("B21EFDB"))
+builder.Services.AddDbContext<ProductDbContext>(
+    options => options.UseSqlServer
+    (builder.Configuration.GetConnectionString("B21EFDB"))
     );
 
 var app = builder.Build();
@@ -25,6 +26,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Category}/{action=Index}/{id?}");
 
 app.Run();
